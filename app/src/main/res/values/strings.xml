@@ -2,7 +2,7 @@
     <string name="app_name">Health Journal</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_home">Home</string>
-    <string name="title_profile">Profile</string>
-    <string name="title_events">Events</string>
+    <string name="title_home">ЛЕЧЕНИЕ</string>
+    <string name="title_profile">ПРОФИЛЬ</string>
+    <string name="title_events">СЕГОДНЯ</string>
 </resources>

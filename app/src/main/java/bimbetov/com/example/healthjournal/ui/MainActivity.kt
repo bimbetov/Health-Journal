@@ -1,4 +1,4 @@
-package bimbetov.com.example.healthjournal
+package bimbetov.com.example.healthjournal.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import bimbetov.com.example.healthjournal.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(setOf(
             R.id.eventsFragment,
             R.id.homeFragment,
-            R.id.profileFragment))
+            R.id.profileFragment
+        ))
 
         setupActionBarWithNavController(navController, appBarConfiguration)
 
