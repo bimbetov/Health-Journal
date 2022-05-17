@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "331512972915",
+    "project_id": "healthjournaldatabase",
+    "storage_bucket": "healthjournaldatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331512972915:android:e1f32aab223702676c8c06",
+        "android_client_info": {
+          "package_name": "bimbetov.com.example.healthjournal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331512972915-mj06vhb81tthkpc4gsleknoq4eihvsl4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bimbetov.com.example.healthjournal",
+            "certificate_hash": "c2aa75589f561f9f05c1d742ce8becc5dc9893c7"
+          }
+        },
+        {
+          "client_id": "331512972915-jqgkr5mid1fmmtfneb8bsf1k4i6gqebc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr3xAHqb0YYMCnzDj_db7z1mMxvaLHlP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331512972915-jqgkr5mid1fmmtfneb8bsf1k4i6gqebc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
