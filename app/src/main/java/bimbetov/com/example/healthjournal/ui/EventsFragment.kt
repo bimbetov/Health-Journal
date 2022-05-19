@@ -5,22 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import bimbetov.com.example.healthjournal.R
+import bimbetov.com.example.healthjournal.database.Event
+import bimbetov.com.example.healthjournal.database.EventViewModal
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [EventsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class EventsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+class EventsFragment : Fragment(), EventClickInterface {
     private var param1: String? = null
     private var param2: String? = null
+
+    lateinit var eventRV: RecyclerView
+    lateinit var viewModal: EventViewModal
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +30,10 @@ class EventsFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
+
+
     }
 
     override fun onCreateView(
@@ -35,19 +41,26 @@ class EventsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_events, container, false)
+        val view = inflater.inflate(R.layout.fragment_events, container, false)
+
+        eventRV = view?.findViewById(R.id.idRVEvents)!!
+        eventRV.layoutManager = LinearLayoutManager(activity)
+
+        val eventRVAdapter = EventRVAdapter(requireContext(), this)
+        eventRV.adapter = eventRVAdapter
+
+        viewModal = ViewModelProvider(this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
+            ).get(EventViewModal::class.java)
+
+        viewModal.allEvents.observe(viewLifecycleOwner) { list ->
+            eventRVAdapter.submitList(list)
+        }
+
+        return view
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EventsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             EventsFragment().apply {
@@ -56,5 +69,18 @@ class EventsFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onDeleteIconClick(event: Event) {
+        viewModal.deleteEvent(event)
+        Toast.makeText(requireContext(), "${event.title} Deleted", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onChecked(event: Event, isChecked: Boolean) {
+        viewModal.onChecked(event, isChecked)
+    }
+
+    override fun onEventClick(event: Event) {
+        findNavController().navigate(EventsFragmentDirections.actionEventsFragmentToAddEventActivity(event))
     }
 }

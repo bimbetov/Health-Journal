@@ -5,4 +5,5 @@
     <string name="title_home">ЛЕЧЕНИЕ</string>
     <string name="title_profile">ПРОФИЛЬ</string>
     <string name="title_events">СЕГОДНЯ</string>
+    <string name="title_add_event">Добавление события</string>
 </resources>

@@ -9,18 +9,35 @@
         android:id="@+id/eventsFragment"
         android:name="bimbetov.com.example.healthjournal.ui.EventsFragment"
         android:label="@string/title_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_events" >
+        <action
+            android:id="@+id/action_eventsFragment_to_addEventActivity"
+            app:destination="@id/addEventActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="bimbetov.com.example.healthjournal.ui.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_addEventActivity"
+            app:destination="@id/addEventActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="bimbetov.com.example.healthjournal.ui.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+    <activity
+        android:id="@+id/addEventActivity"
+        android:name="bimbetov.com.example.healthjournal.ui.AddEventActivity"
+        android:label="AddEventActivity" >
+        <argument
+            android:name="event"
+            app:argType="bimbetov.com.example.healthjournal.database.Event"
+            app:nullable="true" />
+    </activity>
 
 </navigation>
