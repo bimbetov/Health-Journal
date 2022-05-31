@@ -29,7 +29,11 @@
         android:id="@+id/profileFragment"
         android:name="bimbetov.com.example.healthjournal.ui.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_fundListActivity"
+            app:destination="@id/fundListActivity" />
+    </fragment>
     <activity
         android:id="@+id/addEventActivity"
         android:name="bimbetov.com.example.healthjournal.ui.AddEventActivity"
@@ -39,5 +43,10 @@
             app:argType="bimbetov.com.example.healthjournal.database.Event"
             app:nullable="true" />
     </activity>
+    <activity
+        android:id="@+id/fundListActivity"
+        android:name="bimbetov.com.example.healthjournal.ui.FundListActivity"
+        android:label="activity_fund_list"
+        tools:layout="@layout/activity_fund_list" />
 
 </navigation>

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "331512972915",
+    "firebase_url": "https://healthjournaldatabase-default-rtdb.firebaseio.com",
     "project_id": "healthjournaldatabase",
     "storage_bucket": "healthjournaldatabase.appspot.com"
   },

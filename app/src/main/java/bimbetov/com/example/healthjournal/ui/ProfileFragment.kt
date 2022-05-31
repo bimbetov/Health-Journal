@@ -1,13 +1,16 @@
 package bimbetov.com.example.healthjournal.ui
 
 import android.content.Intent
+import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import bimbetov.com.example.healthjournal.R
+import bimbetov.com.example.healthjournal.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,6 +27,8 @@ class ProfileFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    //private lateinit var binding: FragmentProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,10 +49,18 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val btnLogout = view.findViewById<Button>(R.id.btn_logout)
+        val btnCharity = view.findViewById<Button>(R.id.btn_charity)
+
         btnLogout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(requireContext(), LoginActivity::class.java))
             requireActivity().finish()
+        }
+
+        btnCharity.setOnClickListener {
+            startActivity(Intent(requireContext(),FundListActivity::class.java))
+            /*val action = ProfileFragmentDirections.actionProfileFragmentToFundListActivity()
+            findNavController().navigate(action)*/
         }
     }
 
